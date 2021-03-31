@@ -1,0 +1,62 @@
+{
+	"textures": [
+		{
+			"image": "inputField.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 183,
+				"h": 159
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "0002.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 182,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 181,
+						"h": 80
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 181,
+						"h": 80
+					}
+				},
+				{
+					"filename": "0001.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 176,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 174,
+						"h": 75
+					},
+					"frame": {
+						"x": 1,
+						"y": 83,
+						"w": 174,
+						"h": 75
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:1556676e2cff19b3beceaf74778d3118:b8f2f3beb128e6c65f4cbad18b769f9f:ed5a14b189d98b3b3f52f9c7560966cf$"
+	}
+}

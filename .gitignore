@@ -1,0 +1,21 @@
+# System and IDE files
+Thumbs.db
+.DS_Store
+.idea
+*.suo
+*.sublime-project
+*.sublime-workspace
+/.vscode
+
+# Vendors
+node_modules/
+.husky
+
+.env
+.eslintignore
+
+# Build
+build/
+/npm-debug.log
+
+yarn-error.log

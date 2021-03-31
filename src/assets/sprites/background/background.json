@@ -1,0 +1,272 @@
+{
+	"textures": [
+		{
+			"image": "background-0.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1041,
+				"h": 781
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "background.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 800,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 800,
+						"h": 600
+					},
+					"frame": {
+						"x": 2,
+						"y": 2,
+						"w": 800,
+						"h": 600
+					}
+				},
+				{
+					"filename": "wave5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 175
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 175
+					},
+					"frame": {
+						"x": 2,
+						"y": 604,
+						"w": 87,
+						"h": 175
+					}
+				},
+				{
+					"filename": "wave4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 90,
+						"h": 134
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 90,
+						"h": 134
+					},
+					"frame": {
+						"x": 91,
+						"y": 604,
+						"w": 90,
+						"h": 134
+					}
+				},
+				{
+					"filename": "wave6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 30,
+						"h": 117
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 30,
+						"h": 117
+					},
+					"frame": {
+						"x": 183,
+						"y": 604,
+						"w": 30,
+						"h": 117
+					}
+				},
+				{
+					"filename": "wave2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 12,
+						"h": 56
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 12,
+						"h": 56
+					},
+					"frame": {
+						"x": 183,
+						"y": 723,
+						"w": 12,
+						"h": 56
+					}
+				},
+				{
+					"filename": "water_foam_light.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 680,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 680,
+						"h": 54
+					},
+					"frame": {
+						"x": 197,
+						"y": 723,
+						"w": 680,
+						"h": 54
+					}
+				},
+				{
+					"filename": "water_foam_dark.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 713,
+						"h": 90
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 711,
+						"h": 88
+					},
+					"frame": {
+						"x": 215,
+						"y": 604,
+						"w": 711,
+						"h": 88
+					}
+				},
+				{
+					"filename": "sand_left_side.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 600
+					},
+					"frame": {
+						"x": 804,
+						"y": 2,
+						"w": 128,
+						"h": 600
+					}
+				},
+				{
+					"filename": "sand_right_side.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 106,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 105,
+						"h": 600
+					},
+					"frame": {
+						"x": 934,
+						"y": 2,
+						"w": 105,
+						"h": 600
+					}
+				},
+				{
+					"filename": "wave7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 25,
+						"h": 78
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 23,
+						"h": 78
+					},
+					"frame": {
+						"x": 879,
+						"y": 694,
+						"w": 23,
+						"h": 78
+					}
+				},
+				{
+					"filename": "wave1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 68
+					},
+					"frame": {
+						"x": 904,
+						"y": 694,
+						"w": 24,
+						"h": 68
+					}
+				},
+				{
+					"filename": "wave3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 21,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 19,
+						"h": 68
+					},
+					"frame": {
+						"x": 928,
+						"y": 604,
+						"w": 19,
+						"h": 68
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:3174f69e65a589efdce95ccb27d9444b:7bfb1dd74ee65a4fd07c824fa0e935cf:7879ec654f4b35c2ee39da39aabde286$"
+	}
+}

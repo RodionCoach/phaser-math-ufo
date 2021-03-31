@@ -1,0 +1,293 @@
+{
+	"textures": [
+		{
+			"image": "gui-0.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 242,
+				"h": 256
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "button_default.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 226,
+						"h": 60
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 226,
+						"h": 60
+					},
+					"frame": {
+						"x": 3,
+						"y": 3,
+						"w": 226,
+						"h": 60
+					}
+				},
+				{
+					"filename": "inpul_field.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 176,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 176,
+						"h": 76
+					},
+					"frame": {
+						"x": 3,
+						"y": 67,
+						"w": 176,
+						"h": 76
+					}
+				},
+				{
+					"filename": "reset_btn.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 76,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 76,
+						"h": 76
+					},
+					"frame": {
+						"x": 3,
+						"y": 147,
+						"w": 76,
+						"h": 76
+					}
+				},
+				{
+					"filename": "submit_btn.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 76,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 76,
+						"h": 76
+					},
+					"frame": {
+						"x": 83,
+						"y": 147,
+						"w": 76,
+						"h": 76
+					}
+				},
+				{
+					"filename": "digit_button.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 76,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 76,
+						"h": 74
+					},
+					"frame": {
+						"x": 163,
+						"y": 147,
+						"w": 76,
+						"h": 74
+					}
+				},
+				{
+					"filename": "empty_heart.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 30,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 2,
+						"w": 28,
+						"h": 26
+					},
+					"frame": {
+						"x": 3,
+						"y": 227,
+						"w": 28,
+						"h": 26
+					}
+				},
+				{
+					"filename": "filled_heart.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 30,
+						"h": 30
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 2,
+						"w": 28,
+						"h": 26
+					},
+					"frame": {
+						"x": 35,
+						"y": 227,
+						"w": 28,
+						"h": 26
+					}
+				},
+				{
+					"filename": "sound_on.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 3,
+						"w": 34,
+						"h": 30
+					},
+					"frame": {
+						"x": 183,
+						"y": 67,
+						"w": 34,
+						"h": 30
+					}
+				},
+				{
+					"filename": "sound_off_dark.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 26,
+						"h": 35
+					},
+					"frame": {
+						"x": 183,
+						"y": 101,
+						"w": 26,
+						"h": 35
+					}
+				},
+				{
+					"filename": "pause.svg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 28,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 28,
+						"h": 28
+					},
+					"frame": {
+						"x": 163,
+						"y": 225,
+						"w": 28,
+						"h": 28
+					}
+				},
+				{
+					"filename": "submit_icon.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 44,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 15,
+						"w": 23,
+						"h": 18
+					},
+					"frame": {
+						"x": 195,
+						"y": 225,
+						"w": 23,
+						"h": 18
+					}
+				},
+				{
+					"filename": "sound_off_light.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 26,
+						"h": 35
+					},
+					"frame": {
+						"x": 213,
+						"y": 101,
+						"w": 26,
+						"h": 35
+					}
+				},
+				{
+					"filename": "reset_icon.svg",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 44,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 13,
+						"w": 18,
+						"h": 18
+					},
+					"frame": {
+						"x": 67,
+						"y": 227,
+						"w": 18,
+						"h": 18
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:663723b2913ecf195d3e7647c43277db:3f956d441969c2146f415e3143b7f641:48f41115e3c5028bd310174ad4d8735a$"
+	}
+}
