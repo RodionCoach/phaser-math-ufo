@@ -13,30 +13,23 @@ class PauseScene extends Phaser.Scene {
   }
 
   create() {
+    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+
     this.soundControl = new SoundButton({
       scene: this,
-      x: 20,
-      y: 20,
-      texture: "gui",
-      frameOn: "sound_on.svg",
-      frameOff: "sound_off_light.svg",
+      x: 15,
+      y: 15,
+      texture: "volume",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
     });
-    this.add.shader(
-      "cartoonWaterShader",
-      GAME_RESOLUTION.width / 2,
-      GAME_RESOLUTION.height / 2,
-      GAME_RESOLUTION.width,
-      GAME_RESOLUTION.height,
-      ["cartoonWater", "noiseWater", "noise"],
-    );
-    this.add.image(770, 670, "actors", "water_lily.png").setOrigin(0).setAngle(-135.0).setFlipY(true);
 
     const containerButton = this.add
       .container(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2)
       .setName("containerButton")
       .setDepth(DEPTH_LAYERS.one);
 
-    const distanceBetweenButtons = 40;
+    const distanceBetweenButtons = 30;
 
     const buttonRestart = new GUIContainer({
       scene: this,

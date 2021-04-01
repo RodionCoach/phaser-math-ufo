@@ -3,9 +3,9 @@ import { GUIContainer } from "../objects/guiContainer";
 import { SetKeyboardKeys } from "../sceneHooks/SetKeyboardKeys";
 import { SetAudio } from "../sceneHooks/SetAudio";
 import { GAME_RESOLUTION, GAME_HEALTH_POINTS, TOTAL_LILIES, DEPTH_LAYERS } from "../utils/constants";
-import { BUTTON_NUMBER_STYLE, SCORE_STYLE } from "../utils/styles";
+import { SCORE_LABEL_STYLE, INPUT_NUMBER_STYLE, BUTTON_NUMBER_STYLE, SCORE_STYLE } from "../utils/styles";
 import SoundButton from "../objects/soundButton";
-import { Score } from "../types";
+import { IScore } from "../types";
 
 class GameScene extends Phaser.Scene {
   currentLifes: number;
@@ -15,7 +15,7 @@ class GameScene extends Phaser.Scene {
   plusPts: Phaser.GameObjects.Text;
   soundControl: SoundButton;
   prevNotGuessed: number;
-  score: Score;
+  score: IScore;
 
   constructor() {
     super({
@@ -27,55 +27,47 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-    this.soundControl = this.soundControl = new SoundButton({
+    this.soundControl = new SoundButton({
       scene: this,
-      x: 20,
-      y: 20,
-      texture: "gui",
-      frameOn: "sound_on.svg",
-      frameOff: "sound_off_light.svg",
+      x: 15,
+      y: 15,
+      texture: "volume",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
     });
     const pauseControl = this.add
-      .image(752, 24, "gui", "pause.svg")
-      .setOrigin(0)
+      .image(785, 15, "pause", "default.png")
+      .setOrigin(1, 0)
       .setInteractive({ useHandCursor: true })
-      ?.setDepth(DEPTH_LAYERS.one);
+      ?.setDepth(DEPTH_LAYERS.two);
     pauseControl.on("pointerdown", () => {
       this.scene.launch("PauseScene");
       this.scene.pause();
     });
 
-    this.plusPts = this.add.text(60, 395, "", SCORE_STYLE).setOrigin(0.5).setDepth(DEPTH_LAYERS.one).setVisible(false);
+    this.add.image(0, 0, "background0", "background.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
+    this.add.image(0, 0, "background0", "light.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
     this.add
-      .shader(
-        "cartoonWaterShader",
-        GAME_RESOLUTION.width / 2,
-        GAME_RESOLUTION.height / 2,
-        GAME_RESOLUTION.width,
-        GAME_RESOLUTION.height,
-        ["cartoonWater", "noiseWater", "noise"],
-      )
-      .setUniform("isFoam.value", 1.0);
+      .image(GAME_RESOLUTION.width / 2, 0, "background", "ship.png")
+      .setOrigin(0.5, 0)
+      .setDepth(DEPTH_LAYERS.one);
+    this.add.image(0, 0, "background", "background_2.png").setOrigin(0).setDepth(DEPTH_LAYERS.one);
+    this.add.image(800, 315, "background", "frame_right.png").setOrigin(1, 0).setDepth(DEPTH_LAYERS.one);
+    this.add.image(0, 521, "background", "frame_left.png").setOrigin(0).setDepth(DEPTH_LAYERS.one);
 
-    this.add.image(0, 0, "background", "sand_left_side.png").setOrigin(0);
-    this.add.image(698, 0, "background", "sand_right_side.png").setOrigin(0);
-    this.add.image(56, 347, "actors", "boat.png").setAngle(-5.5);
-    this.add.text(60, 335, "Score", SCORE_STYLE).setOrigin(0.5).setDepth(DEPTH_LAYERS.one);
-
-    this.add.image(0, 449, "actors", "bridge.png").setOrigin(0).setDepth(DEPTH_LAYERS.one);
-    this.add.image(765, 483, "actors", "leaves_stones_right.png").setOrigin(0).setDepth(DEPTH_LAYERS.one);
-    this.add.image(0, 541, "actors", "leaves_stones_left.png").setOrigin(0).setDepth(DEPTH_LAYERS.one);
+    this.plusPts = this.add.text(43, 500, "", SCORE_STYLE).setOrigin(0.5).setDepth(DEPTH_LAYERS.one).setVisible(false);
+    this.add.text(17, 528, "SCORE", SCORE_LABEL_STYLE).setOrigin(0).setDepth(DEPTH_LAYERS.one);
 
     this.sound.add("background");
     this.sound.add("wrong");
     this.sound.add("missed");
     this.sound.add("solved");
 
-    this.heartsGroup = this.add.container(765, 355).setName("heartsGroup").setDepth(DEPTH_LAYERS.one);
+    this.heartsGroup = this.add.container(756, 331).setName("heartsGroup").setDepth(DEPTH_LAYERS.one);
     for (let i = 0; i < this.currentLifes; i++) {
       const heartFilled: Phaser.GameObjects.Sprite = this.add
-        .sprite(0, i * 30, "gui", "filled_heart.svg")
-        .setOrigin(0.5, 0.5)
+        .sprite(0, i * 50, "health", "on.png")
+        .setOrigin(0, 0)
         .disableInteractive();
       this.heartsGroup.add(heartFilled);
     }
@@ -91,9 +83,9 @@ class GameScene extends Phaser.Scene {
       x: 0,
       y: 0,
       text: "",
-      textStyle: BUTTON_NUMBER_STYLE,
-      texture: "gui",
-      defaultFrame: "inpul_field.png",
+      textStyle: INPUT_NUMBER_STYLE,
+      texture: "inputField",
+      defaultFrame: "right.png",
       depth: DEPTH_LAYERS.one,
     });
     inputField.sprite.disableInteractive();
@@ -102,11 +94,12 @@ class GameScene extends Phaser.Scene {
     const resetButton = new GUIContainer({
       scene: this,
       name: "resetButton",
-      x: -(inputField.sprite.width / 2) - 40,
+      x: -(inputField.sprite.width / 2) - 20,
       y: 0,
       text: "",
-      texture: "gui",
-      defaultFrame: "reset_btn.png",
+      texture: "reset",
+      defaultFrame: "default.png",
+      pressedFrame: "pressed.png",
       depth: DEPTH_LAYERS.one,
       pointerDown: () => {
         this.ResetAnswerText(inputField.textObject, inputField.sprite);
@@ -117,11 +110,12 @@ class GameScene extends Phaser.Scene {
     const setButton = new GUIContainer({
       scene: this,
       name: "setButton",
-      x: inputField.sprite.width / 2 + 40,
+      x: inputField.sprite.width / 2 + 20,
       y: 0,
       text: "",
-      texture: "gui",
-      defaultFrame: "submit_btn.png",
+      texture: "set",
+      defaultFrame: "default.png",
+      pressedFrame: "pressed.png",
       depth: DEPTH_LAYERS.one,
       pointerDown: () => {
         this.CheckAnswer(inputField.textObject, inputField.sprite);
@@ -130,24 +124,26 @@ class GameScene extends Phaser.Scene {
     containerInputGUI.add(setButton);
 
     const containerDigitalGUI = this.add
-      .container(GAME_RESOLUTION.width / 2 - 316, 547)
+      .container(GAME_RESOLUTION.width / 2 - 262, 557)
       .setName("containerDigitalGUI")
       .setDepth(DEPTH_LAYERS.one);
     for (let i = 0; i < 10; i++) {
       const digitalButton = new GUIContainer({
         scene: this,
         name: `digital-${i}`,
-        x: i === 0 ? 9 * 70 : (i - 1) * 70,
+        x: i === 0 ? 9 * 62 : (i - 1) * 62,
         y: 0,
         text: `${i}`,
         textStyle: BUTTON_NUMBER_STYLE,
-        texture: "gui",
-        defaultFrame: "digit_button.png",
+        texture: "digital",
+        defaultFrame: "default.png",
+        pressedFrame: "pressed.png",
         depth: DEPTH_LAYERS.one,
         pointerDown: () => {
           this.SetAnswerText(`${i}`, inputField.textObject, inputField.sprite);
         },
       });
+      digitalButton.textObject.setPosition(0, -10);
       containerDigitalGUI.add(digitalButton);
     }
 
@@ -174,7 +170,7 @@ class GameScene extends Phaser.Scene {
       }
     });
 
-    this.soundControl.setTexture("gui", this.sound.mute ? "sound_off_light.svg" : "sound_on.svg");
+    this.soundControl.setTexture("volume", this.sound.mute ? "pressed.png" : "default.png");
   }
 
   HeartsCallBack() {
@@ -191,7 +187,7 @@ class GameScene extends Phaser.Scene {
         onComplete: () => {
           this.PlayMissedSound();
           const heart = <Phaser.GameObjects.Sprite>this.heartsGroup.getAll()[this.prevNotGuessed - 1];
-          heart.setTexture("gui", "empty_heart.svg");
+          heart.setTexture("health", "off.png");
         },
       });
       if (this.prevNotGuessed === this.currentLifes) {
@@ -214,12 +210,12 @@ class GameScene extends Phaser.Scene {
 
   ResetAnswerText(inputTextObject: Phaser.GameObjects.Text, inputFieldObject: Phaser.GameObjects.Sprite, text = "") {
     inputTextObject.setText(text);
-    inputFieldObject.setTexture("inputField", "0001.png");
+    inputFieldObject.setTexture("inputField", "right.png");
   }
 
   WrongAnswerText(inputTextObject: Phaser.GameObjects.Text, inputFieldObject: Phaser.GameObjects.Sprite) {
     inputTextObject.setText("");
-    inputFieldObject.setTexture("inputField", "0002.png");
+    inputFieldObject.setTexture("inputField", "wrong.png");
   }
 
   SetAnswerText(
@@ -265,17 +261,19 @@ class GameScene extends Phaser.Scene {
   SetScore() {
     this.score = {
       pts: 0,
-      textObject: this.make.text({
-        x: 60,
-        y: 355,
-        text: "0",
-        origin: {
-          x: 0.5,
-          y: 0.5,
-        },
-        style: SCORE_STYLE,
-        add: true,
-      }),
+      textObject: this.make
+        .text({
+          x: 43,
+          y: 559,
+          text: "0",
+          origin: {
+            x: 0.5,
+            y: 0.5,
+          },
+          style: SCORE_STYLE,
+          add: true,
+        })
+        .setDepth(DEPTH_LAYERS.two),
     };
 
     this.score.textObject.setText(`${this.score.pts}`);

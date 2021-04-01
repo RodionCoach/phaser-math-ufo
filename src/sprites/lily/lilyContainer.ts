@@ -39,7 +39,7 @@ export default class LilyContainer extends Phaser.GameObjects.Container {
 
     this.rt = this.scene.add.renderTexture(400, 300, 128, 128).setVisible(false);
     this.rt.saveTexture("spriteText");
-    this.spriteText = this.scene.add.sprite(0, 0, "spriteText");
+    this.spriteText = this.scene.add.sprite(-17, -52, "spriteText");
     this.add(this.spriteText);
   }
 

@@ -23,29 +23,29 @@ export default class LilySpawner extends Phaser.GameObjects.GameObject {
     this.notGuessedCount = 0;
     this.guessedCount = 0;
     this.visibleLiliesCount = 0;
-    const frameNamesWave = scene.anims.generateFrameNames("lily", {
+    const frameNamesWave = scene.anims.generateFrameNames("cow", {
       start: 1,
-      end: 4,
+      end: 1,
       zeroPad: 4,
-      prefix: "wave/",
+      prefix: "poses/",
       suffix: ".png",
     });
-    scene.anims.create({ key: "wave", frames: frameNamesWave, frameRate: 4, repeat: -1 });
+    scene.anims.create({ key: "poses", frames: frameNamesWave, frameRate: 4, repeat: -1 });
 
-    const frameNamesSolved = scene.anims.generateFrameNames("lily", {
+    const frameNamesSolved = scene.anims.generateFrameNames("cow", {
       start: 1,
-      end: 11,
+      end: 1,
       zeroPad: 4,
-      prefix: "solved/",
+      prefix: "saved/",
       suffix: ".png",
     });
-    scene.anims.create({ key: "solved", frames: frameNamesSolved, frameRate: 10, repeat: 0 });
+    scene.anims.create({ key: "saved", frames: frameNamesSolved, frameRate: 10, repeat: 0 });
 
-    const frameNamesLine = scene.anims.generateFrameNames("lily", {
+    const frameNamesLine = scene.anims.generateFrameNames("cow", {
       start: 1,
-      end: 5,
+      end: 1,
       zeroPad: 4,
-      prefix: "line/",
+      prefix: "poses/",
       suffix: ".png",
     });
     scene.anims.create({ key: "line", frames: frameNamesLine, frameRate: 15, repeat: 0 });
@@ -56,7 +56,7 @@ export default class LilySpawner extends Phaser.GameObjects.GameObject {
         LilyContainer.config.startPos.x,
         LilyContainer.config.startPos.y,
       );
-      lilyContainer.sprite.setTexture("lily", "wave/0001.png").setScale(1.2, 1.2);
+      lilyContainer.sprite.setTexture("cow", "poses/0001.png").setScale(1.2, 1.2);
       lilyContainer.sprite.on(
         Phaser.Animations.Events.ANIMATION_COMPLETE,
         () => {
@@ -81,7 +81,7 @@ export default class LilySpawner extends Phaser.GameObjects.GameObject {
       lily.textObject.setText("");
       lily.textObjectForSign.setText("");
       lily.sprite.anims.play({
-        key: "solved",
+        key: "saved",
         frameRate: Phaser.Math.Between(15, 20),
       });
       this.speedIncrementer += (this.delta / 1000) * 0.05;
@@ -102,10 +102,11 @@ export default class LilySpawner extends Phaser.GameObjects.GameObject {
     lily.textObject.setText(`${example.number1}\n${example.number2}`);
     lily.textObjectForSign.setText(example.sign).setPosition(-lily.textObject.width, 0);
     this.currentLiliesCount += 1;
-    lily.sprite.anims.play({
-      key: "wave",
-      frameRate: Phaser.Math.Between(2, 5),
-    });
+    lily.sprite.setTexture("cow", `poses/000${Phaser.Math.Between(1, 6)}.png`);
+    // lily.sprite.anims.play({
+    //   key: "poses",
+    //   frameRate: Phaser.Math.Between(2, 5),
+    // });
 
     lily.UpdateExampleTexture();
     lily.tweenMove = this.scene.tweens.add({

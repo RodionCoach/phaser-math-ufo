@@ -4,18 +4,18 @@ import RulesScene from "./scenes/RulesScene";
 import StartScene from "./scenes/StartScene";
 import EndScene from "./scenes/EndScene";
 
-export interface InitData {
+export interface IInitData {
   currentScore: number;
 }
 
-export interface Score {
+export interface IScore {
   pts: number;
   textObject: Phaser.GameObjects.Text;
 }
 
 type AllScenes = GameScene | PauseScene | RulesScene | StartScene | EndScene;
 
-export interface ToggleAudioConfig {
+export interface IToggleAudioConfig {
   scene: AllScenes;
   texture: string;
   frameOn: string;

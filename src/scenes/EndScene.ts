@@ -3,7 +3,7 @@ import { BUTTON_STYLE, SCORE_TITLE_STYLE, SCORE_NUMBERS_STYLE, SCORE_TEXT_STYLE 
 import { SetAudio } from "../sceneHooks/SetAudio";
 import SoundButton from "../objects/soundButton";
 import { GUIContainer } from "../objects/guiContainer";
-import { InitData } from "../types";
+import { IInitData } from "../types";
 
 class EndScene extends Phaser.Scene {
   currentScore: number;
@@ -17,28 +17,19 @@ class EndScene extends Phaser.Scene {
     this.currentScore = 0;
   }
 
-  init(data: InitData) {
+  init(data: IInitData) {
     this.currentScore = data.currentScore;
   }
 
   create() {
     this.soundControl = new SoundButton({
       scene: this,
-      x: 20,
-      y: 20,
-      texture: "gui",
-      frameOn: "sound_on.svg",
-      frameOff: "sound_off_light.svg",
+      x: 15,
+      y: 15,
+      texture: "volume",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
     });
-    this.add.shader(
-      "cartoonWaterShader",
-      GAME_RESOLUTION.width / 2,
-      GAME_RESOLUTION.height / 2,
-      GAME_RESOLUTION.width,
-      GAME_RESOLUTION.height,
-      ["cartoonWater", "noiseWater", "noise"],
-    );
-    this.add.image(770, 670, "actors", "water_lily.png").setOrigin(0).setAngle(-135.0).setFlipY(true);
 
     this.sound.add("gameOver");
 
@@ -47,13 +38,20 @@ class EndScene extends Phaser.Scene {
       .setName("container")
       .setDepth(DEPTH_LAYERS.one);
 
-    const distanceBetweenButtons = 40;
+    const distanceBetweenButtons = 30;
 
-    const yourScoreText = this.add.text(0, -180, "Your Score:", SCORE_TITLE_STYLE).setOrigin(0.5);
+    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+    this.add.image(GAME_RESOLUTION.width / 2, 71, "backgroundMenu", "frame_score.png").setOrigin(0.5, 0);
+    const bestScorePlane = this.add
+      .image(GAME_RESOLUTION.width / 2, 215, "backgroundMenu", "frame_newrecord.png")
+      .setOrigin(0.5, 0)
+      .setVisible(false);
+
+    const yourScoreText = this.add.text(0, -190, "YOUR SCORE", SCORE_TITLE_STYLE).setOrigin(0.5);
     container.add(yourScoreText);
-    const scoreText = this.add.text(0, -130, `${this.currentScore}`, SCORE_NUMBERS_STYLE).setOrigin(0.5);
+    const scoreText = this.add.text(0, -135, `${this.currentScore}`, SCORE_NUMBERS_STYLE).setOrigin(0.5);
     container.add(scoreText);
-    const bestScoreText = this.add.text(0, -50, this.IsBestScore(), SCORE_TEXT_STYLE).setOrigin(0.5);
+    const bestScoreText = this.add.text(0, -260, this.IsBestScore(bestScorePlane), SCORE_TEXT_STYLE).setOrigin(0.5);
     container.add(bestScoreText);
 
     const buttonRestart = new GUIContainer({
@@ -95,7 +93,7 @@ class EndScene extends Phaser.Scene {
     SetAudio(this, "gameOver", 1.0, false);
   }
 
-  IsBestScore() {
+  IsBestScore(bestScorePlane: Phaser.GameObjects.Image) {
     let prevBestScore = window.localStorage.getItem("best_score");
     if (prevBestScore === "undefined" || prevBestScore === null) {
       prevBestScore = "0";
@@ -103,7 +101,7 @@ class EndScene extends Phaser.Scene {
 
     if (+prevBestScore < this.currentScore) {
       window.localStorage.setItem("best_score", `${this.currentScore}`);
-
+      bestScorePlane.setVisible(true);
       return "It is your best score!";
     }
 
