@@ -17,6 +17,6 @@ export default class SoundButton extends Phaser.GameObjects.Image {
       .on("pointerdown", () => {
         ToggleAudio({ scene, texture, frameOn, frameOff });
       })
-      ?.setDepth(DEPTH_LAYERS.two);
+      ?.setDepth(DEPTH_LAYERS.four);
   }
 }

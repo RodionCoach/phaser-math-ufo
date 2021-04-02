@@ -48,6 +48,7 @@ class BootScene extends Phaser.Scene {
     this.load.audio("wrong", "./assets/sounds/wrong_answer.mp3");
     this.load.audio("missed", "./assets/sounds/missed_problem.mp3");
     this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
+    this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
 
     this.load.rexWebFont({
       google: {
