@@ -45,8 +45,18 @@ class GameScene extends Phaser.Scene {
       this.scene.pause();
     });
 
-    this.add.image(0, 0, "background0", "background.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
-    this.add.image(0, 0, "background0", "light.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
+    // this.add.image(0, 0, "background0", "background.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
+    // this.add.image(0, 0, "background0", "light.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
+
+    this.add.shader(
+      "ufoLightShader",
+      GAME_RESOLUTION.width / 2,
+      GAME_RESOLUTION.height / 2,
+      GAME_RESOLUTION.width,
+      GAME_RESOLUTION.height,
+      ["backForShader", "lightForShader"],
+    );
+
     this.add
       .image(GAME_RESOLUTION.width / 2, 0, "background", "ship.png")
       .setOrigin(0.5, 0)
