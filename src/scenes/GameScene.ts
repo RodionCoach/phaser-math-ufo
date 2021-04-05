@@ -280,7 +280,7 @@ class GameScene extends Phaser.Scene {
   }
 
   PlayMissedSound() {
-    this.sound.get("missed").play({ volume: 0.05 });
+    this.sound.get("missed").play({ volume: 0.5 });
   }
 
   SetScore() {
