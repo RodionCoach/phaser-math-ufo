@@ -50,6 +50,10 @@ class BootScene extends Phaser.Scene {
     this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
     this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
 
+    this.load.glsl("ufoLightShader", "./assets/shaders/ufoLight.glsl");
+    this.load.image("backForShader", "./assets/img/background.png");
+    this.load.image("lightForShader", "./assets/img/light.png");
+
     this.load.rexWebFont({
       google: {
         families: ["Lato:400,700,900"],
