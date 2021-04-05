@@ -76,7 +76,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
     exampleObject.tweenMove = this.scene.tweens.add({
       targets: exampleObject,
       y: EXAMPLE_BOUNDARY_LIMIT,
-      duration: 10000,
+      duration: 20000,
       ease: "Linear",
       onComplete: () => {
         exampleObject.answer = -1;
