@@ -170,7 +170,7 @@ class GameScene extends Phaser.Scene {
     this.time.addEvent({
       delay: 20000,
       loop: true,
-      callback: () => SetAudio(this, "ufoBeam", 0.1, false),
+      callback: () => SetAudio(this, "ufoBeam", 0.05, false),
       callbackScope: this,
     });
   }
@@ -280,7 +280,7 @@ class GameScene extends Phaser.Scene {
   }
 
   PlayMissedSound() {
-    this.sound.get("missed").play({ volume: 0.25 });
+    this.sound.get("missed").play({ volume: 0.05 });
   }
 
   SetScore() {

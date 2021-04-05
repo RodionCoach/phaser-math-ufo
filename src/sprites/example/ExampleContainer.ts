@@ -1,8 +1,9 @@
-import { SIGNS } from "../../utils/constants";
+import { DEPTH_LAYERS, SIGNS } from "../../utils/constants";
 
 export default class ExampleContainer extends Phaser.GameObjects.Container {
   tweenMove: Phaser.Tweens.Tween;
   tweenSave: Phaser.Tweens.Tween;
+  tweenMissed: Phaser.Tweens.Tween;
   sprite: Phaser.GameObjects.Sprite;
   additionalSprite: Phaser.GameObjects.Sprite;
   colorFactor: number;
@@ -69,5 +70,136 @@ export default class ExampleContainer extends Phaser.GameObjects.Container {
     if (status) {
       this.answer = answer;
     }
+  }
+
+  SetTweenMissed() {
+    this.tweenMissed = this.scene.tweens.add({
+      targets: this,
+      props: {
+        colorFactor: {
+          value: 0,
+          duration: 150,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Liner",
+        },
+        alpha: {
+          value: 0.8,
+          duration: 300,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeInOut",
+        },
+        scaleX: {
+          value: "0.2",
+          duration: 300,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeIn",
+        },
+        scaleY: {
+          value: "0.2",
+          duration: 300,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeIn",
+        },
+      },
+      onUpdate: () => {
+        this.RecolorExample();
+      },
+      onComplete: () => {
+        this.ResetAfterAnimation();
+        this.SetStatus(false, -1);
+      },
+    });
+  }
+
+  SetTweenSave() {
+    this.tweenSave = this.scene.tweens.add({
+      targets: this,
+      props: {
+        colorFactor: {
+          value: 0,
+          duration: 850,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Liner",
+        },
+        x: {
+          value: {
+            getEnd: (target, key, value) => {
+              return value + 125 * (Math.random() - 0.5);
+            },
+          },
+          duration: 1000,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Liner",
+        },
+        y: {
+          value: 800,
+          duration: 1000,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Back.easeIn",
+        },
+        alpha: {
+          value: 0.8,
+          duration: 1000,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeInOut",
+        },
+        scaleX: {
+          value: "0.2",
+          duration: 1000,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeIn",
+        },
+        scaleY: {
+          value: "0.2",
+          duration: 1000,
+          yoyo: false,
+          repeat: 0,
+          loop: -1,
+          ease: "Quad.easeIn",
+        },
+      },
+      onUpdate: () => {
+        this.RecolorExample();
+      },
+      onComplete: () => {
+        this.ResetAfterAnimation();
+        this.additionalSprite.setVisible(false);
+      },
+    });
+  }
+
+  ResetAfterAnimation() {
+    this.setDepth(DEPTH_LAYERS.two).setScale(1.1, 1.1);
+    this.alpha = 1.0;
+    this.colorFactor = 1.0;
+    this.sprite.clearTint();
+  }
+
+  RecolorExample() {
+    this.sprite.setTint(
+      Phaser.Display.Color.GetColor(
+        this.colorFactor * 255,
+        this.colorFactor * 255,
+        Phaser.Math.Clamp(this.colorFactor + 0.18, 0.0, 1.0) * 255,
+      ),
+    );
   }
 }
