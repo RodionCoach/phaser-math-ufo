@@ -2,7 +2,7 @@
   "name": "math",
   "version": "0.1.0",
   "description": "Aristek game",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "rollup --config rollup.config.build.js",
     "start": "rollup --watch --config rollup.config.dev.js",
