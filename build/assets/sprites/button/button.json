@@ -1,0 +1,83 @@
+{
+	"textures": [
+		{
+			"image": "button.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 802,
+				"h": 155
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "default.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 800,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 800,
+						"h": 51
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 800,
+						"h": 51
+					}
+				},
+				{
+					"filename": "hover.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 800,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 2,
+						"w": 800,
+						"h": 49
+					},
+					"frame": {
+						"x": 1,
+						"y": 54,
+						"w": 800,
+						"h": 49
+					}
+				},
+				{
+					"filename": "pressed.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 800,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 2,
+						"w": 800,
+						"h": 49
+					},
+					"frame": {
+						"x": 1,
+						"y": 105,
+						"w": 800,
+						"h": 49
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:3b9616e95598c0de38ca3b37404a2a55:7ac57d9b2cfb2ec1fbbf9aa81ec45574:c39245c3a59c1712d97d26c862b4cbc5$"
+	}
+}

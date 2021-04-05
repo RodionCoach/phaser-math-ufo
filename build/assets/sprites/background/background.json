@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "background.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 956,
+				"h": 607
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "background_2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 800,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 94,
+						"w": 800,
+						"h": 506
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 800,
+						"h": 506
+					}
+				},
+				{
+					"filename": "frame_left.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 90,
+						"h": 60
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 90,
+						"h": 60
+					},
+					"frame": {
+						"x": 803,
+						"y": 1,
+						"w": 90,
+						"h": 60
+					}
+				},
+				{
+					"filename": "frame_right.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 266
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 266
+					},
+					"frame": {
+						"x": 895,
+						"y": 1,
+						"w": 60,
+						"h": 266
+					}
+				},
+				{
+					"filename": "ship.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 680,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 680,
+						"h": 97
+					},
+					"frame": {
+						"x": 1,
+						"y": 509,
+						"w": 680,
+						"h": 97
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:74f10b7ac38d84682423c8151b0750b5:42ff944d807ac58a245d4bdbda8e79a8:2ba65c328dea799e4d80739630892abf$"
+	}
+}
