@@ -25,27 +25,30 @@ class BootScene extends Phaser.Scene {
       this.scene.start("StartScene");
     });
 
-    this.load.multiatlas("lily", `${PATH_SPRITES}/lily/lily.json`, `${PATH_SPRITES}/lily`);
-    this.load.multiatlas("inputField", `${PATH_SPRITES}/inputField/inputField.json`, `${PATH_SPRITES}/inputField`);
-    this.load.multiatlas("actors", `${PATH_SPRITES}/actors/actors.json`, `${PATH_SPRITES}/actors`);
+    this.load.multiatlas("background0", `${PATH_SPRITES}/background/background0.json`, `${PATH_SPRITES}/background`);
     this.load.multiatlas("background", `${PATH_SPRITES}/background/background.json`, `${PATH_SPRITES}/background`);
-    this.load.multiatlas("gui", `${PATH_SPRITES}/gui/gui.json`, `${PATH_SPRITES}/gui`);
+    this.load.multiatlas(
+      "backgroundMenu",
+      `${PATH_SPRITES}/background/backgroundMenu.json`,
+      `${PATH_SPRITES}/background`,
+    );
     this.load.multiatlas("buttonBackground", `${PATH_SPRITES}/button/button.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("volume", `${PATH_SPRITES}/button/volume.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("set", `${PATH_SPRITES}/button/set.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("reset", `${PATH_SPRITES}/button/reset.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("pause", `${PATH_SPRITES}/button/pause.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("digital", `${PATH_SPRITES}/button/digital.json`, `${PATH_SPRITES}/button`);
+    this.load.multiatlas("health", `${PATH_SPRITES}/gui/health.json`, `${PATH_SPRITES}/gui`);
+    this.load.multiatlas("inputField", `${PATH_SPRITES}/gui/inputField.json`, `${PATH_SPRITES}/gui`);
     this.load.image("divisionSign", "./assets/img/divisionSign.png");
-    this.load.image("answerButton", "./assets/img/GUI_digit_button.png");
-    this.load.image("resetButton", "./assets/img/GUI_reset_btn.png");
-    this.load.image("setButton", "./assets/img/GUI_submit_btn.png");
-    this.load.image("cartoonWater", "./assets/img/cartoonWater.png");
-    this.load.image("noiseWater", "./assets/img/noiseWater.png");
-    this.load.image("noise", "./assets/img/noise.png");
+    this.load.multiatlas("cow", `${PATH_SPRITES}/cow/cow.json`, `${PATH_SPRITES}/cow`);
 
     this.load.audio("background", "./assets/sounds/background.mp3");
     this.load.audio("solved", "./assets/sounds/solved_problem.mp3");
     this.load.audio("wrong", "./assets/sounds/wrong_answer.mp3");
     this.load.audio("missed", "./assets/sounds/missed_problem.mp3");
     this.load.audio("gameOver", "./assets/sounds/end_of_the_game.mp3");
-
-    this.load.glsl("cartoonWaterShader", "./assets/shaders/cartoonWater.glsl");
+    this.load.audio("ufoBeam", "./assets/sounds/ufo_beam.mp3");
 
     this.load.rexWebFont({
       google: {

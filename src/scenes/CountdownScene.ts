@@ -9,15 +9,7 @@ class CountdownScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.shader(
-      "cartoonWaterShader",
-      GAME_RESOLUTION.width / 2,
-      GAME_RESOLUTION.height / 2,
-      GAME_RESOLUTION.width,
-      GAME_RESOLUTION.height,
-      ["cartoonWater", "noiseWater", "noise"],
-    );
-    this.add.image(770, 670, "actors", "water_lily.png").setOrigin(0).setAngle(-135.0).setFlipY(true);
+    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
 
     let count = 3;
 

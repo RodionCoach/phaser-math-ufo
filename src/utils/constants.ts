@@ -15,21 +15,23 @@ export const RULES_TEXT =
 export const TEXT_AREA_CONFIG_FOR_RULES = {
   x: 0,
   y: 40,
-  width: 600,
-  height: 350,
+  width: 622,
+  height: 465,
 };
 
 export const DEPTH_LAYERS = {
   zero: 0,
   one: 1,
   two: 2,
+  three: 3,
+  four: 4,
 };
 
 export const TOTAL_LILIES = 4;
 
-export const LILY_BONDARY_LIMIT = 70;
+export const EXAMPLE_BOUNDARY_LIMIT = 0;
 
-export const GAME_HEALTH_POINTS = 4;
+export const GAME_HEALTH_POINTS = 5;
 
 export const PATH_SPRITES = "./assets/sprites";
 

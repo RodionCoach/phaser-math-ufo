@@ -1,4 +1,4 @@
-interface ButtonStyle {
+interface IButtonStyle {
   fontSize: string;
   fixedHeight: number;
   fontFamily: string;
@@ -8,13 +8,13 @@ interface ButtonStyle {
   align: string;
 }
 
-interface GUIContainerConfig {
+interface IGUIContainerConfig {
   scene: Phaser.Scene;
   name: string;
   x: number;
   y: number;
   text?: string;
-  textStyle?: ButtonStyle;
+  textStyle?: IButtonStyle;
   texture: string;
   defaultFrame: string;
   frameHover?: string;
@@ -46,7 +46,7 @@ class GUIContainer extends Phaser.GameObjects.Container {
     pointerUp = () => {},
     pointerOver = () => {},
     pointerOut = () => {},
-  }: GUIContainerConfig) {
+  }: IGUIContainerConfig) {
     super(scene, x, y);
     scene.add.existing(this);
 

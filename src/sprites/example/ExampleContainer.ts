@@ -1,8 +1,11 @@
 import { SIGNS } from "../../utils/constants";
 
-export default class LilyContainer extends Phaser.GameObjects.Container {
+export default class ExampleContainer extends Phaser.GameObjects.Container {
   tweenMove: Phaser.Tweens.Tween;
+  tweenSave: Phaser.Tweens.Tween;
   sprite: Phaser.GameObjects.Sprite;
+  additionalSprite: Phaser.GameObjects.Sprite;
+  colorFactor: number;
   textObject: Phaser.GameObjects.Text;
   textObjectForSign: Phaser.GameObjects.Text;
   divisionSign: Phaser.GameObjects.Sprite;
@@ -14,13 +17,15 @@ export default class LilyContainer extends Phaser.GameObjects.Container {
   static config = {
     startPos: {
       x: 0,
-      y: 600,
+      y: 650,
     },
   };
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     super(scene, x, y);
     scene.add.existing(this);
+
+    this.colorFactor = 1;
 
     this.sprite = scene.add.sprite(0, 0, "", "").disableInteractive();
     this.add(this.sprite);
@@ -35,11 +40,14 @@ export default class LilyContainer extends Phaser.GameObjects.Container {
       .setVisible(false);
     this.add(this.divisionSign);
 
+    this.additionalSprite = scene.add.sprite(0, 0, "", "").disableInteractive().setVisible(false);
+    this.add(this.additionalSprite);
+
     this.canMove = false;
 
     this.rt = this.scene.add.renderTexture(400, 300, 128, 128).setVisible(false);
     this.rt.saveTexture("spriteText");
-    this.spriteText = this.scene.add.sprite(0, 0, "spriteText");
+    this.spriteText = this.scene.add.sprite(-17, -52, "spriteText");
     this.add(this.spriteText);
   }
 
@@ -57,7 +65,7 @@ export default class LilyContainer extends Phaser.GameObjects.Container {
 
   SetStatus(status: boolean, answer: number) {
     this.canMove = status;
-    this.y = LilyContainer.config.startPos.y;
+    this.y = ExampleContainer.config.startPos.y;
     if (status) {
       this.answer = answer;
     }

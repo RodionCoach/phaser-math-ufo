@@ -1,8 +1,8 @@
 import { ToggleAudio } from "../sceneHooks/ToggleAudio";
 import { DEPTH_LAYERS } from "../utils/constants";
-import { ToggleAudioConfig } from "../types";
+import { IToggleAudioConfig } from "../types";
 
-interface SoundButtonConfig extends ToggleAudioConfig {
+interface SoundButtonConfig extends IToggleAudioConfig {
   x: number;
   y: number;
 }
@@ -17,6 +17,6 @@ export default class SoundButton extends Phaser.GameObjects.Image {
       .on("pointerdown", () => {
         ToggleAudio({ scene, texture, frameOn, frameOff });
       })
-      ?.setDepth(DEPTH_LAYERS.one);
+      ?.setDepth(DEPTH_LAYERS.four);
   }
 }

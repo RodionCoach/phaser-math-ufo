@@ -1,6 +1,6 @@
-import { ToggleAudioConfig } from "../types";
+import { IToggleAudioConfig } from "../types";
 
-export const ToggleAudio = ({ scene, texture, frameOn, frameOff }: ToggleAudioConfig) => {
+export const ToggleAudio = ({ scene, texture, frameOn, frameOff }: IToggleAudioConfig) => {
   if (!scene.sound.mute) {
     scene.soundControl.setTexture(texture, frameOff);
   } else {

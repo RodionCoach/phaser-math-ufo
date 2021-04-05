@@ -1,5 +1,5 @@
 import { DEPTH_LAYERS, GAME_RESOLUTION } from "../utils/constants";
-import { BUTTON_STYLE } from "../utils/styles";
+import { BUTTON_STYLE, TITLE_STYLE } from "../utils/styles";
 import { SetAudio } from "../sceneHooks/SetAudio";
 import SoundButton from "../objects/soundButton";
 import { GUIContainer } from "../objects/guiContainer";
@@ -14,28 +14,26 @@ class StartScene extends Phaser.Scene {
   }
 
   create() {
+    this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
+    this.add.image(GAME_RESOLUTION.width / 2, 71, "backgroundMenu", "frame_title.png").setOrigin(0.5, 0);
+    this.add
+      .text(GAME_RESOLUTION.width / 2, 115, "SPACE MOO", TITLE_STYLE)
+      .setOrigin(0.5, 0)
+      .setDepth(DEPTH_LAYERS.one);
+
     this.soundControl = new SoundButton({
       scene: this,
-      x: 20,
-      y: 20,
-      texture: "gui",
-      frameOn: "sound_on.svg",
-      frameOff: "sound_off_light.svg",
+      x: 15,
+      y: 15,
+      texture: "volume",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
     });
-    this.add.shader(
-      "cartoonWaterShader",
-      GAME_RESOLUTION.width / 2,
-      GAME_RESOLUTION.height / 2,
-      GAME_RESOLUTION.width,
-      GAME_RESOLUTION.height,
-      ["cartoonWater", "noiseWater", "noise"],
-    );
-    this.add.image(770, 670, "actors", "water_lily.png").setOrigin(0).setAngle(-135.0).setFlipY(true);
 
     this.sound.add("background");
 
     const containerButton = this.add
-      .container(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2)
+      .container(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2 + 100)
       .setName("containerButton")
       .setDepth(DEPTH_LAYERS.one);
 
@@ -43,7 +41,7 @@ class StartScene extends Phaser.Scene {
       scene: this,
       name: "newGameButton",
       x: 0,
-      y: -50,
+      y: -40,
       text: "NEW GAME",
       textStyle: BUTTON_STYLE,
       texture: "buttonBackground",
@@ -61,7 +59,7 @@ class StartScene extends Phaser.Scene {
       scene: this,
       name: "rulesGameButton",
       x: 0,
-      y: 50,
+      y: 40,
       text: "HOW TO PLAY",
       textStyle: BUTTON_STYLE,
       texture: "buttonBackground",
