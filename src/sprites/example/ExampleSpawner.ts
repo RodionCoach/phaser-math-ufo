@@ -49,79 +49,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
       exampleContainer.textObject.setText("");
       exampleContainer.textObjectForSign.setText("");
       exampleContainer.additionalSprite.setVisible(true);
-      exampleContainer.tweenSave = this.scene.tweens.add({
-        targets: exampleContainer,
-        props: {
-          colorFactor: {
-            value: 0,
-            duration: 850,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Liner",
-          },
-          x: {
-            value: {
-              getEnd: (target, key, value) => {
-                return value + 125 * (Math.random() - 0.5);
-              },
-            },
-            duration: 1000,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Liner",
-          },
-          y: {
-            value: 800,
-            duration: 1000,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Back.easeIn",
-          },
-          alpha: {
-            value: 0.8,
-            duration: 1000,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Quad.easeInOut",
-          },
-          scaleX: {
-            value: "0.2",
-            duration: 1000,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Quad.easeIn",
-          },
-          scaleY: {
-            value: "0.2",
-            duration: 1000,
-            yoyo: false,
-            repeat: 0,
-            loop: -1,
-            ease: "Quad.easeIn",
-          },
-        },
-        onUpdate: (tween, target) => {
-          target.sprite.setTint(
-            Phaser.Display.Color.GetColor(
-              exampleContainer.colorFactor * 255,
-              exampleContainer.colorFactor * 255,
-              Phaser.Math.Clamp(exampleContainer.colorFactor + 0.18, 0.0, 1.0) * 255,
-            ),
-          );
-        },
-        onComplete: () => {
-          exampleContainer.setDepth(DEPTH_LAYERS.two).setScale(1.1, 1.1);
-          exampleContainer.alpha = 1.0;
-          exampleContainer.colorFactor = 1.0;
-          exampleContainer.sprite.clearTint();
-          exampleContainer.additionalSprite.setVisible(false);
-        },
-      });
+      exampleContainer.SetTweenSave();
 
       this.speedIncrementer += (this.delta / 1000) * 0.05;
     });
@@ -158,7 +86,7 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
         exampleObject.spriteText.setVisible(false);
         exampleObject.textObject.setText("");
         exampleObject.textObjectForSign.setText("");
-        exampleObject.SetStatus(false, -1);
+        exampleObject.SetTweenMissed();
       },
     });
   }
