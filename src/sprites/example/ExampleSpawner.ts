@@ -15,7 +15,6 @@ export default class ExampleSpawner extends Phaser.GameObjects.GameObject {
   constructor(scene: Phaser.Scene) {
     super(scene, "");
 
-    scene.add.existing(this);
     this.speedIncrementer = 1;
     this.delta = 1;
     this.currentLiliesCount = 0;
