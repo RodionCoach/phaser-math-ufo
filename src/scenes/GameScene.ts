@@ -5,6 +5,7 @@ import { SetAudio } from "../sceneHooks/SetAudio";
 import { GAME_RESOLUTION, GAME_HEALTH_POINTS, TOTAL_LILIES, DEPTH_LAYERS } from "../utils/constants";
 import { SCORE_LABEL_STYLE, INPUT_NUMBER_STYLE, BUTTON_NUMBER_STYLE, SCORE_STYLE } from "../utils/styles";
 import SoundButton from "../objects/soundButton";
+import FullScreenButton from "../objects/fullScreenButton";
 import { IScore } from "../types";
 
 class GameScene extends Phaser.Scene {
@@ -16,6 +17,7 @@ class GameScene extends Phaser.Scene {
   soundControl: SoundButton;
   prevNotGuessed: number;
   score: IScore;
+  fullScreenControl: FullScreenButton;
 
   constructor() {
     super({
@@ -44,9 +46,6 @@ class GameScene extends Phaser.Scene {
       this.scene.launch("PauseScene");
       this.scene.pause();
     });
-
-    // this.add.image(0, 0, "background0", "background.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
-    // this.add.image(0, 0, "background0", "light.png").setOrigin(0).setDepth(DEPTH_LAYERS.zero);
 
     this.add.shader(
       "ufoLightShader",

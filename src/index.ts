@@ -7,6 +7,7 @@ import RulesScene from "./scenes/RulesScene";
 import CountdownScene from "./scenes/CountdownScene";
 import EndScene from "./scenes/EndScene";
 import WebFontLoaderPlugin from "phaser3-rex-plugins/plugins/webfontloader-plugin.js";
+import TagTextPlugin from "phaser3-rex-plugins/plugins/tagtext-plugin.js";
 
 import { GAME_RESOLUTION, BACKGROUND_COLOR } from "./utils/constants";
 
@@ -31,6 +32,11 @@ const config = {
       {
         key: "rexWebFontLoader",
         plugin: WebFontLoaderPlugin,
+        start: true,
+      },
+      {
+        key: "rexTagTextPlugin",
+        plugin: TagTextPlugin,
         start: true,
       },
     ],

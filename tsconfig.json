@@ -12,7 +12,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "declaration": true
   },
   "include": [
     "./src/**/*",

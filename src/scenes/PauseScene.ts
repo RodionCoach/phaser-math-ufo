@@ -1,10 +1,12 @@
 import { DEPTH_LAYERS, GAME_RESOLUTION } from "../utils/constants";
 import { BUTTON_STYLE } from "../utils/styles";
+import FullScreenButton from "../objects/fullScreenButton";
 import SoundButton from "../objects/soundButton";
 import { GUIContainer } from "../objects/guiContainer";
 
 class PauseScene extends Phaser.Scene {
   soundControl: SoundButton;
+  fullScreenControl: FullScreenButton;
 
   constructor() {
     super({
@@ -15,10 +17,19 @@ class PauseScene extends Phaser.Scene {
   create() {
     this.add.image(0, 0, "backgroundMenu", "menu_background.png").setOrigin(0);
 
-    this.soundControl = new SoundButton({
+    this.fullScreenControl = new FullScreenButton({
       scene: this,
       x: 15,
       y: 15,
+      texture: "fullscreen",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
+    });
+
+    this.soundControl = new SoundButton({
+      scene: this,
+      x: 15,
+      y: 86,
       texture: "volume",
       frameOn: "default.png",
       frameOff: "pressed.png",

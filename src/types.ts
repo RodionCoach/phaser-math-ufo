@@ -21,3 +21,7 @@ export interface IToggleAudioConfig {
   frameOn: string;
   frameOff: string;
 }
+
+export interface IExtendedGameObjectFactory extends Phaser.GameObjects.GameObjectFactory {
+  rexTagText?: any;
+}

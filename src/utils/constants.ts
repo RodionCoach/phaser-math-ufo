@@ -6,11 +6,7 @@ export const GAME_RESOLUTION = {
 };
 
 export const RULES_TEXT =
-  "Phasellus tempor velit tellus, tempus facilisis sem placerat et. Maecenas et risus in tortor bibendum laoreet. Vestibulum vel augue nec erat dignissim ullamcorper vel vel dui. Fusce rutrum libero ornare dolor luctus, sit amet eleifend elit rutrum. \n" +
-  "\n" +
-  "Sed tincidunt urna eu leo gravida hendrerit. Nam imperdiet fermentum felis, venenatis mattis justo ultrices vitae. Maecenas odio orci, vehicula in egestas a, ultrices quis risus. Etiam posuere rhoncus erat, in suscipit erat dignissim at. \n" +
-  "\n" +
-  "Nam imperdiet fermentum felis, venenatis mattis justo ultrices vitae. Maecenas odio orci, vehicula in egestas a, ultrices quis risus. Etiam posuere rhoncus erat, in suscipit erat dignissim at.";
+  '\n<style="font-style:bold">Goal:</style>\nSolve as much math problems as possible. Each correct answer gives you +100 score points and game speed increases.\n\n<style="font-style:bold">Rules:</style>\nType the answers for any math problem on the screen using your keyboard or number strip on a screen. Then press Enter key or green Confirm button on a screen to submit your answer. You can use Backspace key or red Delete button to erase answer before submit.\nDon’t be afraid of any mistakes, you can try to give a correct answer again untill the moment when cow is stolen.mm<style="font-style:bold">End of the game:</style>\nThe game ends when five cows are stolen.\n\n<style="font-style:bold">Good luck!</style>';
 
 export const TEXT_AREA_CONFIG_FOR_RULES = {
   x: 0,

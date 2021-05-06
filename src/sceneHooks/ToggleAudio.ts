@@ -6,5 +6,7 @@ export const ToggleAudio = ({ scene, texture, frameOn, frameOff }: IToggleAudioC
   } else {
     scene.soundControl.setTexture(texture, frameOn);
   }
-  scene.sound.mute = !scene.sound.mute;
+
+  const sound = <Phaser.Sound.HTML5AudioSound | Phaser.Sound.WebAudioSoundManager>scene.sound;
+  sound.setMute(!scene.sound.mute);
 };

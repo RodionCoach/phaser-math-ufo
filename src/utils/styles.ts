@@ -21,14 +21,14 @@ export const RULES_STYLE = {
   fontFamily: "Lato",
   fontSize: "17px",
   fontWeight: "900",
-  fontStyle: "bold",
   lineSpacing: 4,
   fill: "#A5C2EA",
   align: "left",
   boundsAlignH: "center", // bounds center align horizontally
   boundsAlignV: "middle", // bounds center align vertically
-  wordWrap: {
-    width: 512,
+  wrap: {
+    mode: "word",
+    width: 500,
   },
 };
 

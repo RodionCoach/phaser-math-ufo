@@ -1,10 +1,12 @@
 import { DEPTH_LAYERS, GAME_RESOLUTION } from "../utils/constants";
 import { BUTTON_STYLE, TITLE_STYLE } from "../utils/styles";
 import { SetAudio } from "../sceneHooks/SetAudio";
+import FullScreenButton from "../objects/fullScreenButton";
 import SoundButton from "../objects/soundButton";
 import { GUIContainer } from "../objects/guiContainer";
 
 class StartScene extends Phaser.Scene {
+  fullScreenControl: FullScreenButton;
   soundControl: SoundButton;
 
   constructor() {
@@ -21,10 +23,19 @@ class StartScene extends Phaser.Scene {
       .setOrigin(0.5, 0)
       .setDepth(DEPTH_LAYERS.one);
 
-    this.soundControl = new SoundButton({
+    this.fullScreenControl = new FullScreenButton({
       scene: this,
       x: 15,
       y: 15,
+      texture: "fullscreen",
+      frameOn: "default.png",
+      frameOff: "pressed.png",
+    });
+
+    this.soundControl = new SoundButton({
+      scene: this,
+      x: 15,
+      y: 86,
       texture: "volume",
       frameOn: "default.png",
       frameOff: "pressed.png",
@@ -33,7 +44,7 @@ class StartScene extends Phaser.Scene {
     this.sound.add("background");
 
     const containerButton = this.add
-      .container(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2 + 100)
+      .container(GAME_RESOLUTION.width / 2, GAME_RESOLUTION.height / 2 + 50)
       .setName("containerButton")
       .setDepth(DEPTH_LAYERS.one);
 
@@ -74,6 +85,10 @@ class StartScene extends Phaser.Scene {
     containerButton.add(rulesGameButton);
 
     SetAudio(this, "background", 1.0, true);
+  }
+
+  update() {
+    this.soundControl.setTexture("volume", this.sound.mute ? "pressed.png" : "default.png");
   }
 
   StartGame() {

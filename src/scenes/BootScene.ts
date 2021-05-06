@@ -7,6 +7,9 @@ class BootScene extends Phaser.Scene {
     });
   }
   preload() {
+    this.input.mouse.preventDefaultWheel = false; // avoid wheel preventing
+    this.sound.mute = true; //starts without sound
+
     const progressBox = this.add.graphics();
     const progress = this.add.graphics();
 
@@ -40,6 +43,7 @@ class BootScene extends Phaser.Scene {
     this.load.multiatlas("digital", `${PATH_SPRITES}/button/digital.json`, `${PATH_SPRITES}/button`);
     this.load.multiatlas("health", `${PATH_SPRITES}/gui/health.json`, `${PATH_SPRITES}/gui`);
     this.load.multiatlas("inputField", `${PATH_SPRITES}/gui/inputField.json`, `${PATH_SPRITES}/gui`);
+    this.load.multiatlas("fullscreen", `${PATH_SPRITES}/gui/fullscreen.json`, `${PATH_SPRITES}/gui`);
     this.load.image("divisionSign", "./assets/img/divisionSign.png");
     this.load.multiatlas("cow", `${PATH_SPRITES}/cow/cow.json`, `${PATH_SPRITES}/cow`);
 

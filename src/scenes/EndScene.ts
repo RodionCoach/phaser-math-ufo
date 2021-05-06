@@ -8,6 +8,7 @@ import { IInitData } from "../types";
 class EndScene extends Phaser.Scene {
   currentScore: number;
   soundControl: Phaser.GameObjects.Image;
+  fullScreenControl: Phaser.GameObjects.Image;
 
   constructor() {
     super({
